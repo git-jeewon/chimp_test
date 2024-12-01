@@ -4,8 +4,8 @@ set_property PACKAGE_PIN W5 [get_ports clk]
 	create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports clk]
  
 # Switches
-set_property PACKAGE_PIN V17 [get_ports {sw[0]}]					
-	set_property IOSTANDARD LVCMOS33 [get_ports {sw[0]}]
+set_property PACKAGE_PIN V17 [get_ports rst]					
+	set_property IOSTANDARD LVCMOS33 [get_ports rst]
 set_property PACKAGE_PIN V16 [get_ports {sw[1]}]					
 	set_property IOSTANDARD LVCMOS33 [get_ports {sw[1]}]
 set_property PACKAGE_PIN W16 [get_ports {sw[2]}]					
@@ -28,6 +28,14 @@ set_property PACKAGE_PIN T2 [get_ports {sw[10]}]
 	set_property IOSTANDARD LVCMOS33 [get_ports {sw[10]}]
 set_property PACKAGE_PIN R3 [get_ports {sw[11]}]					
 	set_property IOSTANDARD LVCMOS33 [get_ports {sw[11]}]
+	
+#Buttons
+set_property -dict { PACKAGE_PIN U18   IOSTANDARD LVCMOS33 } [get_ports sel]
+set_property -dict { PACKAGE_PIN T18   IOSTANDARD LVCMOS33 } [get_ports up]
+set_property -dict { PACKAGE_PIN W19   IOSTANDARD LVCMOS33 } [get_ports left]
+set_property -dict { PACKAGE_PIN T17   IOSTANDARD LVCMOS33 } [get_ports right]
+set_property -dict { PACKAGE_PIN U17   IOSTANDARD LVCMOS33 } [get_ports down]
+
 
 #VGA Connector
 set_property PACKAGE_PIN G19 [get_ports {rgb[8]}]				
@@ -58,6 +66,3 @@ set_property PACKAGE_PIN P19 [get_ports hsync]
 	set_property IOSTANDARD LVCMOS33 [get_ports hsync]
 set_property PACKAGE_PIN R19 [get_ports vsync]						
 	set_property IOSTANDARD LVCMOS33 [get_ports vsync]
-
-set_property PACKAGE_PIN U18 [get_ports reset]						
-        set_property IOSTANDARD LVCMOS33 [get_ports reset]

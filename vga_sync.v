@@ -1,13 +1,14 @@
 module vga_sync
 
 	(
-		input wire clk, reset,
+		input wire clk,rst, 
 		output wire hsync, vsync, video_on, p_tick,
 		output wire [9:0] x, y
 	);
 	
 	// constant declarations for VGA sync parameters
 	localparam H_DISPLAY       = 640; // horizontal display area
+	
 	localparam H_L_BORDER      =  48; // horizontal left border
 	localparam H_R_BORDER      =  16; // horizontal right border
 	localparam H_RETRACE       =  96; // horizontal retrace
@@ -28,8 +29,8 @@ module vga_sync
 	wire [1:0] pixel_next;
 	wire pixel_tick;
 	
-	always @(posedge clk, posedge reset)
-		if(reset)
+	always @(posedge clk or posedge rst)
+		if(rst)
 		  pixel_reg <= 0;
 		else
 		  pixel_reg <= pixel_next;
@@ -46,8 +47,8 @@ module vga_sync
 	wire vsync_next, hsync_next;
  
 	// infer registers
-	always @(posedge clk, posedge reset)
-		if(reset)
+	always @(posedge clk or posedge rst)
+		if(rst)
 		    begin
                     v_count_reg <= 0;
                     h_count_reg <= 0;
