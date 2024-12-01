@@ -196,7 +196,6 @@ module easy_update(
     display_number display21(.clk(clk), .number(grid[2][1]), .row(2), .col(1), .p_row(p_row), .p_col(p_col),.x(x), .y(y), .state(state_d),.rgb(rgb21));
     display_number display22(.clk(clk), .number(grid[2][2]), .row(2), .col(2), .p_row(p_row), .p_col(p_col),.x(x), .y(y), .state(state_d),.rgb(rgb22));
     
-    
     always @ (*) begin
         state_next = state_reg;
         target_next = target_num;
