@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 11/14/2024 05:01:47 PM
+// Create Date: 12/01/2024 07:15:30 PM
 // Design Name: 
 // Module Name: cathode_display
 // Project Name: 
@@ -50,3 +50,4 @@ module cathode_display(
         end
    assign cathode = cathode_reg;
 endmodule
+

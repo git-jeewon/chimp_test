@@ -21,7 +21,7 @@
 
 
 module display_number(
-    input clk, input [3:0] number, input [1:0] row, input [1:0] col, input [1:0] p_row, input [1:0] p_col, input [9:0] x, input [9:0] y, input [1:0] state,
+    input clk, input [3:0] number, input [1:0] row, input [1:0] col, input [1:0] p_row, input [1:0] p_col, input [9:0] x, input [9:0] y, input [2:0] state,
     output reg [11:0] rgb
     );
     
@@ -55,7 +55,7 @@ module display_number(
     always @ (posedge clk) begin
         rgb = 12'h000;
         case (state)
-            0: begin
+            1: begin
                 if (p_row == row && p_col == col)
                     rgb = 12'hF00;
                 if (x > borderL && x < borderR && y > borderU && y < borderD) begin
@@ -121,7 +121,7 @@ module display_number(
                  end    
             end
                 
-            1: begin
+            2: begin
                 if (number > 0)
                     rgb = 12'hFFF;
                 if (p_row == row && p_col == col)
@@ -132,10 +132,10 @@ module display_number(
                             rgb = 12'hF00;
             end
                
-            2: begin
+            3: begin
                 rgb = 12'h0F0;
             end
-            3: begin
+            4: begin
                 rgb = 12'h000;
             end
          endcase

@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 11/06/2024 01:24:45 PM
+// Create Date: 12/01/2024 07:12:33 PM
 // Design Name: 
 // Module Name: clock_divider
 // Project Name: 
@@ -19,18 +19,16 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module clock_divider(
     //Output
     clk_multiplex,
-    
     //Input
     clk
     );
     
 input clk;
 
-output wire clk_multiplex;
+output clk_multiplex;
 
 reg clk_multiplex_reg;
 reg [16:0] clk_multiplex_dv;
@@ -50,3 +48,4 @@ end
 assign clk_multiplex = clk_multiplex_reg;
 
 endmodule
+

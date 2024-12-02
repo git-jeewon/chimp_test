@@ -2,7 +2,9 @@ module vga_test
     (
         input clk, rst, left, right, up, down, sel,
         output hsync, vsync,
-        output [11:0] rgb
+        output [11:0] rgb, 
+        output [6:0] cathode,
+        output [3:0] anode
     );
     
     wire db_left;
@@ -37,6 +39,8 @@ module vga_test
     );
     
     wire [11:0] rgb_easy;
+    //wire [6:0] cathode;
+    //wire [3:0] anode;
     
     easy_update easy (
         .clk(clk),
@@ -49,7 +53,9 @@ module vga_test
         .right(db_right),
         .up(db_up),
         .down(db_down),
-        .sel(db_sel)
+        .sel(db_sel),
+        .cathode(cathode),
+        .anode(anode)
         
     );
     // Register for RGB output
